@@ -50,11 +50,4 @@ form {
   background-color: rgba(240, 60, 60, 0.8);
 }
 
-/* Smartphones (portrait) */
-@media only screen and (max-width: 480px) {
-  body { font-size: 27px;}
-  h2 { font-size: 2.4em;}
-  .img-responsive { display: none;}
-  .container { width: 100%;}
-  .sizeSlider { display: none;}
-}
+
