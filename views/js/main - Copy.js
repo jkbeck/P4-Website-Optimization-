@@ -449,12 +449,10 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    //Set document.getElementsByClassName("randomPizzaContainer") into a variable instead of making the request repeatedly
-    var rndPizzaElement = document.getElementsByClassName("randomPizzaContainer");
-    for (var i = 0; i < rndPizzaElement.length; i++) {
-      var dx = determineDx(rndPizzaElement[i], size);
-      var newwidth = (rndPizzaElement[i].offsetWidth + dx) + 'px';
-      rndPizzaElement[i].style.width = newwidth;
+    for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
+      var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -503,15 +501,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var a = 0;
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
-    //Created array for phase values
-    var phase = ["0.9525761942715953", "0.25861934966111083", "-0.6731109323435617", "-0.9859861273616704", "0.7707388788989693"];
-    a++;
-    if(a > 5) { a = 0; }
-    items[i].style.left = items[i].basicLeft + 100 * phase[a] + 'px';
-    console.log("phase-"+ a +" = " + phase);
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    console.log("phase-"+ i +" = " + phase);
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
