@@ -509,7 +509,7 @@ function updatePositions() {
     //Created array for phase values
     var phase = ["0.9525761942715953", "0.25861934966111083", "-0.6731109323435617", "-0.9859861273616704", "0.7707388788989693"];
     a++;
-    if(a > 5) { a = 0; }
+    if(a > 4) { a = 0; }
     items[i].style.left = items[i].basicLeft + 100 * phase[a] + 'px';
     console.log("phase-"+ a +" = " + phase[a]);
   }
