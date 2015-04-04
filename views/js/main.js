@@ -505,6 +505,7 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    console.log("phase-"+ i +" = " + phase);
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -514,8 +515,7 @@ function updatePositions() {
   if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
-  console.log("phase = " + phase);
-  }
+    }
 }
 
 // runs updatePositions on scroll
