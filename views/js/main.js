@@ -511,7 +511,7 @@ function updatePositions() {
     a++;
     if(a > 5) { a = 0; }
     items[i].style.left = items[i].basicLeft + 100 * phase[a] + 'px';
-    console.log("phase-"+ a +" = " + phase);
+    console.log("phase-"+ a +" = " + phase[a]);
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
